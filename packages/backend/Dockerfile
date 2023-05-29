@@ -5,7 +5,6 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /usr/src/app
 COPY dist/packages/backend/package*.json ./
 RUN npm install --only=production
-RUN npm install @nestjs/common @nestjs/core @nestjs/platform-express
 
 # Production image, copy all the files and run next
 FROM docker.io/node:lts-alpine as runner
