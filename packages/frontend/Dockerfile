@@ -10,6 +10,7 @@ RUN npm install --only=production
 FROM docker.io/node:lts-alpine as runner
 RUN apk add --no-cache dumb-init
 ENV NODE_ENV production
+ENV NEXTAUTH_URL=http://localhost:8080
 ENV PORT 80
 WORKDIR /usr/src/app
 COPY --from=deps /usr/src/app/node_modules ./node_modules
